@@ -1,3 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer utilities {
+    .text-glow {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+}
