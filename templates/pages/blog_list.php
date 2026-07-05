@@ -30,7 +30,7 @@
                     <div class="space-y-4">
                         <!-- Post Thumbnail -->
                         <div class="aspect-[16/10] w-full bg-slate-100 overflow-hidden relative border-b border-brand-gold/10">
-                            <img src="<?= htmlspecialchars($thumbnail) ?>" alt="<?= htmlspecialchars(db_trans($post, 'title')) ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="<?= htmlspecialchars($thumbnail) ?>" alt="<?= htmlspecialchars(db_trans($post, 'title')) ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                             <?php if (!empty($post['category_name_en'])): ?>
                                 <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-[9px] font-bold uppercase tracking-wider text-brand-gold border border-brand-gold/15">
                                     <?= htmlspecialchars(db_trans($post, 'category_name')) ?>

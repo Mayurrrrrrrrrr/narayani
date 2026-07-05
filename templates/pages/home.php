@@ -136,7 +136,7 @@
                     <!-- Gold shadow container -->
                     <div class="absolute -inset-2 bg-gradient-to-tr from-brand-gold to-brand-purple rounded-3xl blur opacity-10 group-hover:opacity-25 transition duration-500"></div>
                     <div class="relative aspect-square rounded-2xl overflow-hidden border-2 border-brand-gold/20 shadow-2xl bg-[#FCFAF7] p-8">
-                        <img src="<?= htmlspecialchars($consultant['photo_url']) ?>" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500" alt="<?= htmlspecialchars($consultant['name']) ?>">
+                        <img src="<?= htmlspecialchars($consultant['photo_url']) ?>" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500" alt="<?= htmlspecialchars($consultant['name']) ?>" loading="lazy">
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ $availability = json_decode($consultant['weekly_availability'] ?? '[]', true) ?:
         <div class="lg:col-span-4 space-y-8">
             <div class="glass bg-white p-6 rounded-3xl border border-brand-gold/15 shadow-sm text-center space-y-6">
                 <div class="aspect-square rounded-2xl overflow-hidden border border-brand-gold/10 bg-[#FCFAF7] p-4 flex items-center justify-center">
-                    <img src="<?= htmlspecialchars($photoUrl) ?>" class="max-h-full max-w-full object-contain" alt="<?= htmlspecialchars($name) ?>">
+                    <img src="<?= htmlspecialchars($photoUrl) ?>" class="max-h-full max-w-full object-contain" alt="<?= htmlspecialchars($name) ?>" loading="lazy">
                 </div>
                 <div class="space-y-1">
                     <h3 class="font-serif text-xl text-brand-text font-bold"><?= htmlspecialchars($name) ?></h3>

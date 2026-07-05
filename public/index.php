@@ -69,6 +69,7 @@ $router->get('/booking/receipt/{id}', 'BookingApiController@downloadReceipt');
 $router->get('/privacy-policy', 'HomeController@privacyPolicy');
 $router->get('/terms-conditions', 'HomeController@termsConditions');
 $router->get('/refund-policy', 'HomeController@refundPolicy');
+$router->get('/sitemap.xml', 'HomeController@sitemap');
 $router->get('/api/available-slots', 'BookingApiController@availableSlots');
 $router->post('/api/book', 'BookingApiController@book');
 $router->post('/api/verify-payment', 'BookingApiController@verifyPayment');

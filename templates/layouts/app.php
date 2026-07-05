@@ -7,6 +7,20 @@
     <meta name="description" content="<?= htmlspecialchars($meta_description ?? 'Narayani Portal - Pure Wellness and Sacred Transformation') ?>">
     <meta name="csrf-token" content="<?= htmlspecialchars(\App\Helpers\Csrf::generate()) ?>">
     
+    <!-- Open Graph / Social previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?= htmlspecialchars($title ?? 'Narayani Portal') ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($meta_description ?? 'Narayani Portal - Pure Wellness and Sacred Transformation') ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($og_image ?? 'https://narayani.yuktaa.com/generate-asset?type=geometry&seed=narayani-logo&w=1200&h=630') ?>">
+    <meta property="og:url" content="https://narayani.yuktaa.com<?= htmlspecialchars($_SERVER['REQUEST_URI'] ?? '') ?>">
+
+    <?php if (isset($schema_json) && !empty($schema_json)): ?>
+    <!-- Structured JSON-LD Microdata -->
+    <script type="application/ld+json">
+        <?= $schema_json ?>
+    </script>
+    <?php endif; ?>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +33,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
     <style type="text/css">
         .glass {

@@ -39,11 +39,11 @@
                     <div class="lg:col-span-4 flex justify-center">
                         <div class="w-48 h-48 md:w-56 md:h-56 glass bg-[#FCFAF7] border border-brand-gold/15 rounded-2xl p-6 flex items-center justify-center overflow-hidden">
                             <?php if ($cat['slug'] === 'vastu'): ?>
-                                <img src="/generate-asset?type=placeholder&w=200&h=200&text=Vastu&color=%23C5A059" class="max-h-full max-w-full object-contain" alt="Vastu Logo">
+                                <img src="/generate-asset?type=placeholder&w=200&h=200&text=Vastu&color=%23C5A059" class="max-h-full max-w-full object-contain" alt="Vastu Logo" loading="lazy">
                             <?php elseif ($cat['slug'] === 'jyotish'): ?>
-                                <img src="/generate-asset?type=geometry&seed=jyotish&w=200" class="max-h-full max-w-full object-contain" alt="Jyotish Logo">
+                                <img src="/generate-asset?type=geometry&seed=jyotish&w=200" class="max-h-full max-w-full object-contain" alt="Jyotish Logo" loading="lazy">
                             <?php else: ?>
-                                <img src="/generate-asset?type=logo&w=200" class="max-h-full max-w-full object-contain" alt="Healing Logo">
+                                <img src="/generate-asset?type=logo&w=200" class="max-h-full max-w-full object-contain" alt="Healing Logo" loading="lazy">
                             <?php endif; ?>
                         </div>
                     </div>

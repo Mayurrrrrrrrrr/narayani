@@ -31,12 +31,22 @@ class HomeController extends BaseController
             error_log("Database error in HomeController@index: " . $e->getMessage());
         }
 
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            'name' => 'Narayani Portal',
+            'url' => 'https://narayani.yuktaa.com',
+            'logo' => 'https://narayani.yuktaa.com/generate-asset?type=geometry&seed=narayani-logo&w=300&h=300',
+            'description' => 'Experience wellness, sacred motifs, and pure transformation at the Narayani Portal.'
+        ];
+
         $this->render('pages/home', [
             'title' => 'Home - Narayani Portal',
             'meta_description' => 'Experience wellness, sacred motifs, and pure transformation at the Narayani Portal.',
             'consultant' => $consultant,
             'categories' => $categories,
             'testimonials' => $testimonials,
+            'schema_json' => json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT),
         ]);
     }
 
@@ -104,12 +114,29 @@ class HomeController extends BaseController
                 $relatedStmt->execute([$service['category_id'], $service['id']]);
                 $relatedServices = $relatedStmt->fetchAll() ?: [];
 
+                $schema = [
+                    '@context' => 'https://schema.org',
+                    '@type' => 'Service',
+                    'name' => $service['title'],
+                    'description' => $service['short_desc'] ?? '',
+                    'provider' => [
+                        '@type' => 'Person',
+                        'name' => 'Acharya Narayani Devi'
+                    ],
+                    'offers' => [
+                        '@type' => 'Offer',
+                        'price' => $service['price_inr'],
+                        'priceCurrency' => 'INR'
+                    ]
+                ];
+
                 $this->render('pages/service_detail', [
                     'title' => "{$service['title']} - Narayani Portal",
                     'meta_description' => htmlspecialchars($service['short_desc'] ?? ''),
                     'service' => $service,
                     'category' => $category,
                     'relatedServices' => $relatedServices,
+                    'schema_json' => json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT),
                 ]);
                 return;
             }
@@ -134,10 +161,23 @@ class HomeController extends BaseController
             error_log("Database error in HomeController@about: " . $e->getMessage());
         }
 
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Person',
+            'name' => 'Acharya Narayani Devi',
+            'jobTitle' => 'Vastu & Astrological Consultant',
+            'worksFor' => [
+                '@type' => 'Organization',
+                'name' => 'Narayani Portal'
+            ],
+            'description' => 'Acharya Narayani Devi has over 15 years of experience in Vedic Vastu auditing, astrological alignments, and cosmological geometry consultations.'
+        ];
+
         $this->render('pages/about', [
             'title' => 'About Us - Narayani Portal',
             'meta_description' => 'Our journey, mission, and the ancient wisdom behind Narayani Portal.',
             'consultant' => $consultant,
+            'schema_json' => json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT),
         ]);
     }
 
@@ -539,6 +579,58 @@ class HomeController extends BaseController
         
         $referer = $_SERVER['HTTP_REFERER'] ?? '/';
         header("Location: " . $referer);
+        exit;
+    }
+
+    /**
+     * GET /sitemap.xml
+     */
+    public function sitemap(): void
+    {
+        $urls = [
+            'https://narayani.yuktaa.com/',
+            'https://narayani.yuktaa.com/services',
+            'https://narayani.yuktaa.com/about',
+            'https://narayani.yuktaa.com/contact',
+            'https://narayani.yuktaa.com/booking',
+            'https://narayani.yuktaa.com/privacy-policy',
+            'https://narayani.yuktaa.com/terms-conditions',
+            'https://narayani.yuktaa.com/refund-policy',
+        ];
+
+        try {
+            $db = \App\Services\Database::getConnection();
+
+            // Fetch active services
+            $stmt = $db->query("SELECT slug FROM `services` WHERE `is_active` = 1");
+            $services = $stmt->fetchAll() ?: [];
+            foreach ($services as $srv) {
+                $urls[] = 'https://narayani.yuktaa.com/services/' . urlencode($srv['slug']);
+            }
+
+            // Fetch published blog posts if table exists
+            $blogStmt = $db->query("SELECT slug FROM `blog_posts` WHERE `is_published` = 1");
+            if ($blogStmt) {
+                $blogs = $blogStmt->fetchAll() ?: [];
+                foreach ($blogs as $post) {
+                    $urls[] = 'https://narayani.yuktaa.com/blog/' . urlencode($post['slug']);
+                }
+            }
+        } catch (\Exception $e) {
+            error_log("Database error in HomeController@sitemap: " . $e->getMessage());
+        }
+
+        header('Content-Type: application/xml; charset=utf-8');
+        echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        foreach ($urls as $url) {
+            echo "  <url>\n";
+            echo "    <loc>" . htmlspecialchars($url) . "</loc>\n";
+            echo "    <changefreq>weekly</changefreq>\n";
+            echo "    <priority>" . ($url === 'https://narayani.yuktaa.com/' ? '1.0' : '0.8') . "</priority>\n";
+            echo "  </url>\n";
+        }
+        echo '</urlset>';
         exit;
     }
 }
