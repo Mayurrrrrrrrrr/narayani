@@ -47,7 +47,10 @@ class AdminController extends BaseController
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
-        if ($email === 'admin@narayani.com' && $password === 'NarayaniAdmin@2026') {
+        $adminEmail = \App\Helpers\Env::get('ADMIN_EMAIL', 'admin@narayani.com');
+        $adminPassword = \App\Helpers\Env::get('ADMIN_PASSWORD', 'NarayaniAdmin@2026');
+
+        if ($email === $adminEmail && $password === $adminPassword) {
             $_SESSION['admin_user_id'] = 999; // Mock admin user id
             $_SESSION['admin_user_name'] = 'System Administrator';
             header('Location: /admin');

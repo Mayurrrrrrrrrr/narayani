@@ -1,0 +1,5 @@
+# .gitignore
+.env
+config/database.php
+config/razorpay.php
+storage/

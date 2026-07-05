@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../src/Helpers/Env.php';
+\App\Helpers\Env::load(__DIR__ . '/../.env');
+
 $_SERVER['REDIRECT_STATUS'] = 200;
 if (function_exists('putenv')) {
     putenv("REDIRECT_STATUS=200");
