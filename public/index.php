@@ -117,6 +117,7 @@ $router->group('/dashboard', function (Router $r) {
 // Admin routes group
 $router->group('/admin', function (Router $r) {
     $r->get('/', 'AdminController@dashboard');
+    $r->get('/dashboard', 'AdminController@dashboard');
     $r->get('/bookings', 'AdminController@bookings');
     $r->post('/bookings/upload-report', 'AdminController@uploadReport');
     $r->get('/bookings/export', 'AdminController@exportBookings');
