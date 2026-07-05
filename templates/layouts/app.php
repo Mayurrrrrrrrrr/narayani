@@ -12,34 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&family=Noto+Sans+Devanagari:wght@100..900&family=Noto+Serif+Devanagari:wght@100..900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (Play CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif'],
-                        devanagariSans: ['Noto Sans Devanagari', 'sans-serif'],
-                        devanagariSerif: ['Noto Serif Devanagari', 'serif'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#FCFAF7',
-                            elevated: '#FFFFFF',
-                            card: '#FFFFFF',
-                            pink: '#E25F8C',
-                            purple: '#8B5CF6',
-                            blue: '#3B82F6',
-                            gold: '#C5A059',
-                            text: '#3C3530',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (Compiled Production Stylesheet) -->
+    <link rel="stylesheet" href="/css/app.css">
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
