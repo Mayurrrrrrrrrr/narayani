@@ -12,7 +12,7 @@
     <div class="space-y-12">
         <?php if (!empty($categories)): ?>
             <?php foreach ($categories as $cat): ?>
-                <div class="glass bg-white p-8 md:p-12 rounded-3xl border border-brand-gold/15 shadow-sm hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="glass bg-white p-8 md:p-12 rounded-3xl border border-brand-gold/15 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
                     <!-- Left: Details & Counter -->
                     <div class="lg:col-span-8 space-y-6">

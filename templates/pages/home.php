@@ -34,10 +34,10 @@
 
         <!-- CTAs -->
         <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/services" class="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold tracking-wider hover:opacity-95 transition-opacity uppercase shadow-lg shadow-brand-pink/20 text-center">
+            <a href="/services" class="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold tracking-wider hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.3)] transition-all duration-300 uppercase shadow-lg shadow-brand-pink/20 text-center">
                 <?= t('explore_alignments') ?>
             </a>
-            <a href="/booking" class="px-8 py-4 w-full sm:w-auto rounded-full glass border border-brand-gold/30 text-brand-gold font-semibold tracking-wider hover:bg-brand-gold/10 transition-colors uppercase text-center">
+            <a href="/booking" class="px-8 py-4 w-full sm:w-auto rounded-full glass border border-brand-gold/30 text-brand-gold font-semibold tracking-wider hover:bg-brand-gold/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 uppercase text-center">
                 <?= t('reserve_consultation') ?>
             </a>
         </div>

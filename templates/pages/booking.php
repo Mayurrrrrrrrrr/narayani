@@ -283,7 +283,8 @@ $sessionUser = [
             <button 
                 @click="prevStep()" 
                 x-show="step > 1"
-                class="px-6 py-2.5 rounded-full border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider hover:bg-slate-50"
+                class="px-6 py-2.5 rounded-full border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                :disabled="transitioning"
             >
                 Back
             </button>
@@ -291,8 +292,12 @@ $sessionUser = [
 
             <button 
                 @click="nextStep()" 
-                class="px-6 py-2.5 rounded-full bg-brand-gold text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:opacity-95 transition-opacity"
+                class="px-6 py-2.5 rounded-full bg-brand-gold text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:opacity-95 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center"
+                :disabled="transitioning"
             >
+                <svg x-show="transitioning" class="w-4 h-4 animate-pulse inline-block mr-2 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.5s-4 5-4 10.5c0 3 2 6 4 7 2-1 4-4 4-7 0-5.5-4-10.5-4-10.5z M2 14c0 3 2.5 5 4.5 5.5 1.5-3 3-5 3-7s-3-5.5-5-6c-2 2-2.5 5.5-2.5 7.5z M22 14c0 3-2.5 5-4.5 5.5-1.5-3-3-5-3-7s3-5.5 5-6c2 2 2.5 5.5 2.5 7.5z" />
+                </svg>
                 <span x-text="step === 4 ? 'Confirm & Book' : 'Continue'"></span>
             </button>
         </div>

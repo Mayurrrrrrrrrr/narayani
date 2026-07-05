@@ -100,7 +100,7 @@
     </style>
 </head>
 
-<body class="bg-brand-bg text-brand-text min-h-screen flex flex-col overflow-x-hidden font-sans">
+<body class="font-sans text-slate-800 antialiased min-h-screen flex flex-col bg-white overflow-x-hidden break-words selection:bg-brand-gold/20 selection:text-brand-purple">
     
     <!-- Global Header -->
     <header class="fixed w-full top-0 z-50 glass border-b border-brand-gold/10" x-data="{ mobileMenuOpen: false }">
@@ -147,7 +147,7 @@
 
 
             <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-slate-600 hover:text-brand-gold focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
+            <button class="md:hidden text-slate-600 hover:text-brand-gold focus:outline-none p-2 -mr-2" @click="mobileMenuOpen = !mobileMenuOpen">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
                     <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -184,7 +184,7 @@
     </main>
 
     <!-- Global Footer -->
-    <footer class="bg-[#FAF6F0] border-t border-brand-gold/15 py-16 mt-auto">
+    <footer class="bg-[#FAF6F0] border-t border-brand-gold/15 pt-16 pb-24 md:py-16 mt-auto">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="space-y-4">
                 <div class="flex items-center space-x-3">
@@ -223,15 +223,15 @@
             <div class="space-y-4">
                 <h4 class="font-serif text-sm tracking-wider text-brand-gold uppercase mb-4">Vibrations</h4>
                 <div class="flex space-x-4">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
                         <span class="sr-only">Instagram</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
                     </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
                         <span class="sr-only">Twitter</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
                     </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
+                    <a href="https://youtube.com" target="_blank" rel="noopener" class="w-11 h-11 rounded-full border border-brand-gold/30 flex items-center justify-center text-slate-500 hover:text-brand-gold hover:border-brand-gold transition-colors">
                         <span class="sr-only">YouTube</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/></svg>
                     </a>
