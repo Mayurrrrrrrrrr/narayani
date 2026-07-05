@@ -93,7 +93,7 @@
                     <div class="relative group">
                         <!-- Glowing aura background -->
                         <div class="absolute -inset-0.5 bg-gradient-to-tr from-brand-purple to-brand-gold rounded-3xl blur opacity-0 group-hover:opacity-15 transition duration-500"></div>
-                        <div class="relative bg-white border border-brand-gold/15 p-8 rounded-3xl space-y-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-96">
+                        <div class="relative bg-white border border-brand-gold/15 p-8 rounded-3xl space-y-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 flex flex-col justify-between h-96">
                             <div class="space-y-4">
                                 <!-- Dynamic Icon type mapping -->
                                 <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/15 flex items-center justify-center text-brand-gold transform group-hover:scale-110 transition-transform duration-300">
@@ -218,7 +218,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <!-- Vastu Score Card -->
-            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-md transition-all">
+            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300">
                 <div class="space-y-4">
                     <span class="text-[10px] font-mono uppercase text-brand-pink font-semibold">Complimentary Tool</span>
                     <h4 class="font-serif text-2xl text-brand-text"><?= t('vastu_score_tool') ?></h4>
@@ -227,14 +227,14 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="/tools/vastu-score" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block animate-pulse">
+                    <a href="/tools/vastu-score" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(139,92,246,0.3)] transition-all duration-300">
                         <?= t('submit') ?>
                     </a>
                 </div>
             </div>
 
             <!-- Natal Sign Finder Card -->
-            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-md transition-all">
+            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300">
                 <div class="space-y-4">
                     <span class="text-[10px] font-mono uppercase text-brand-pink font-semibold">Complimentary Tool</span>
                     <h4 class="font-serif text-2xl text-brand-text"><?= t('cosmic_sign_finder') ?></h4>
@@ -243,7 +243,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="/tools/sun-moon-sign" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block animate-pulse">
+                    <a href="/tools/sun-moon-sign" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(139,92,246,0.3)] transition-all duration-300">
                         <?= t('submit') ?>
                     </a>
                 </div>

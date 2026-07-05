@@ -8,7 +8,15 @@ $sessionUser = [
     'city' => $_SESSION['user_city'] ?? '',
 ];
 ?>
-<section class="py-16 max-w-4xl mx-auto px-6" x-data="bookingWizard()">
+<section class="py-16 max-w-4xl mx-auto px-6 relative" x-data="bookingWizard()">
+    <!-- Pulsing Lotus Loading State Overlay -->
+    <div x-show="transitioning" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 bg-white/75 backdrop-blur-sm flex flex-col items-center justify-center space-y-4" style="display: none;">
+        <svg class="w-16 h-16 text-brand-gold animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M3 12h18M12 3c-1.2 3.6-4.8 6.4-9 9 4.2 2.6 7.8 5.4 9 9 1.2-3.6 4.8-6.4 9-9-4.2-2.6-7.8-5.4-9-9z"/>
+        </svg>
+        <span class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">Aligning Cosmic Pathways...</span>
+    </div>
+
     <!-- Wizard Steps Indicator -->
     <div class="mb-12">
         <div class="flex items-center justify-between relative">
@@ -300,6 +308,7 @@ function bookingWizard() {
     return {
         step: 1,
         maxStepReached: 1,
+        transitioning: false,
         services: <?= json_encode($services) ?>,
         modes: <?= json_encode($modes) ?>,
         slots: [],
@@ -350,18 +359,27 @@ function bookingWizard() {
         },
 
         goToStep(s) {
-            if (s <= this.maxStepReached) {
-                this.step = s;
+            if (s <= this.maxStepReached && !this.transitioning) {
+                this.transitioning = true;
+                setTimeout(() => {
+                    this.step = s;
+                    this.transitioning = false;
+                }, 400);
             }
         },
 
         prevStep() {
-            if (this.step > 1) {
-                this.step--;
+            if (this.step > 1 && !this.transitioning) {
+                this.transitioning = true;
+                setTimeout(() => {
+                    this.step--;
+                    this.transitioning = false;
+                }, 400);
             }
         },
 
         async nextStep() {
+            if (this.transitioning) return;
             this.errorMessage = '';
 
             // Step 1 Validation
@@ -374,8 +392,12 @@ function bookingWizard() {
                     alert('Please select a session mode.');
                     return;
                 }
-                this.step = 2;
-                this.maxStepReached = Math.max(this.maxStepReached, 2);
+                this.transitioning = true;
+                setTimeout(() => {
+                    this.step = 2;
+                    this.maxStepReached = Math.max(this.maxStepReached, 2);
+                    this.transitioning = false;
+                }, 400);
                 return;
             }
 
@@ -389,8 +411,12 @@ function bookingWizard() {
                     alert('Please select a time slot.');
                     return;
                 }
-                this.step = 3;
-                this.maxStepReached = Math.max(this.maxStepReached, 3);
+                this.transitioning = true;
+                setTimeout(() => {
+                    this.step = 3;
+                    this.maxStepReached = Math.max(this.maxStepReached, 3);
+                    this.transitioning = false;
+                }, 400);
                 return;
             }
 
@@ -400,8 +426,12 @@ function bookingWizard() {
                     alert('Name and Email are required.');
                     return;
                 }
-                this.step = 4;
-                this.maxStepReached = Math.max(this.maxStepReached, 4);
+                this.transitioning = true;
+                setTimeout(() => {
+                    this.step = 4;
+                    this.maxStepReached = Math.max(this.maxStepReached, 4);
+                    this.transitioning = false;
+                }, 400);
                 return;
             }
 

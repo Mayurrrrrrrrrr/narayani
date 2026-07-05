@@ -34,6 +34,7 @@
     
     <!-- GSAP -->
     <script defer nonce="<?= CSP_NONCE ?>" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer nonce="<?= CSP_NONCE ?>" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <style type="text/css">
         .glass {
@@ -61,10 +62,14 @@
         body, input, textarea, button, select {
             font-family: 'Noto Sans Devanagari', 'Manrope', sans-serif !important;
             line-height: 1.75 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         h1, h2, h3, h4, h5, h6, .font-serif {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif !important;
             line-height: 1.9 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         <?php endif; ?>
     </style>
@@ -215,7 +220,7 @@
     </footer>
 
     <!-- Sticky WhatsApp Action Button Overlay -->
-    <div class="fixed bottom-6 right-6 z-40">
+    <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40">
         <button id="whatsappStickyBtn" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20 hover:scale-110 transition-transform active:scale-95 focus:outline-none relative group">
             <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                 <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.942.558 3.824 1.62 5.466l-1.62 5.922 6.072-1.59c1.584.864 3.366 1.314 5.184 1.314 5.508 0 9.99-4.482 9.99-9.988 0-2.664-1.038-5.166-2.928-7.056-1.89-1.89-4.392-2.928-7.056-2.928zm5.286 13.92c-.228.642-1.344 1.218-1.854 1.284-.462.06-1.068.108-3.036-.708-2.52-1.038-4.14-3.612-4.266-3.78-.126-.168-1.026-1.368-1.026-2.61 0-1.242.648-1.854.882-2.106.228-.252.51-.318.684-.318.174 0 .348.006.498.012.162.006.378-.06.594.462.222.534.762 1.848.828 1.98.066.132.108.288.018.468-.09.18-.18.288-.348.486-.168.192-.354.432-.51.582-.174.168-.354.348-.15.696.204.342.906 1.494 1.944 2.418 1.338 1.188 2.466 1.56 2.814 1.728.348.168.552.138.756-.096.204-.234.882-1.026 1.116-1.38.234-.354.468-.294.786-.174.318.12 2.016.954 2.364 1.128.348.174.582.258.666.402.084.144.084.834-.144 1.476z"/>
@@ -269,12 +274,54 @@
     <!-- GSAP Initializations & Dynamic Interaction Pipelines -->
     <script nonce="<?= CSP_NONCE ?>">
         document.addEventListener('DOMContentLoaded', () => {
-            gsap.from("header", {
-                y: -100,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power4.out"
-            });
+            // Check for prefers-reduced-motion
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (!prefersReducedMotion) {
+                // Register ScrollTrigger
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Fade up section headings
+                gsap.utils.toArray("h2.font-serif, h1.font-serif, section .text-center h2").forEach(heading => {
+                    gsap.from(heading, {
+                        y: 40,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: heading,
+                            start: "top 85%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+                });
+
+                // Stagger entrance of service/testimonial cards
+                const cards = gsap.utils.toArray(".grid > .glass, .grid > div.bg-white");
+                if (cards.length > 0) {
+                    gsap.from(cards, {
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: cards[0].parentElement,
+                            start: "top 80%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+                }
+            }
+
+            if (!prefersReducedMotion) {
+                gsap.from("header", {
+                    y: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power4.out"
+                });
+            }
 
             // 1. WhatsApp Button Tracker
             const whatsappBtn = document.getElementById('whatsappStickyBtn');
