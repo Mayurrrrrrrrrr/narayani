@@ -22,7 +22,10 @@
 
         fetch('/api/vastu-score', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content
+            },
             body: JSON.stringify({
                 name: this.name,
                 email: this.email,

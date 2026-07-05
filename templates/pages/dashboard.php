@@ -158,6 +158,7 @@
             <?php endif; ?>
 
             <form action="/dashboard/review" method="POST" class="space-y-4">
+                <?= \App\Helpers\Csrf::field() ?>
                 <div class="space-y-2">
                     <label class="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Rate Alignment (Stars)</label>
                     <div class="flex items-center space-x-4">

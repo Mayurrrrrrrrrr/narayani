@@ -41,6 +41,7 @@
 
         <div class="glass bg-white p-8 md:p-10 rounded-3xl border border-brand-gold/15 shadow-sm">
             <form action="/dashboard/profile" method="POST" class="space-y-8">
+                <?= \App\Helpers\Csrf::field() ?>
                 <!-- 1. Contact Specs -->
                 <div class="space-y-4">
                     <h3 class="font-serif text-xl text-brand-text border-b border-brand-gold/10 pb-2">Seeker Contact Details</h3>

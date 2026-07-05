@@ -22,6 +22,7 @@
         <?php endif; ?>
 
         <form action="/admin/login" method="POST" class="mt-8 space-y-6 relative z-10">
+            <?= \App\Helpers\Csrf::field() ?>
             <div class="space-y-1.5">
                 <label for="email" class="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Authorized Email</label>
                 <input type="email" id="email" name="email" required placeholder="admin@narayani.com" 

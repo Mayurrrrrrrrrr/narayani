@@ -21,6 +21,7 @@
         <?php endif; ?>
 
         <form action="/contact" method="POST" class="space-y-6">
+            <?= \App\Helpers\Csrf::field() ?>
             <div>
                 <label class="block text-xs uppercase tracking-wider text-brand-gold font-semibold mb-2"><?= t('seeker_name') ?></label>
                 <input type="text" name="name" required class="w-full bg-[#FCFAF7] border border-brand-gold/20 rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-gold transition-colors" placeholder="Your name">

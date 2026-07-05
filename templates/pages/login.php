@@ -15,6 +15,7 @@
         <?php endif; ?>
 
         <form action="/login" method="POST" class="space-y-6">
+            <?= \App\Helpers\Csrf::field() ?>
             <div class="space-y-2">
                 <label class="text-xs uppercase tracking-wider font-semibold text-slate-500">Email Address</label>
                 <input 

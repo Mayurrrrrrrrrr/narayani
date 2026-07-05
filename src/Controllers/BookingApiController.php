@@ -127,6 +127,10 @@ class BookingApiController extends BaseController
      */
     public function book(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $input = json_decode(file_get_contents('php://input'), true);
 
         if (!$input) {
@@ -291,6 +295,10 @@ class BookingApiController extends BaseController
      */
     public function verifyPayment(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $input = json_decode(file_get_contents('php://input'), true);
 
         if (!$input) {

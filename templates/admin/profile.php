@@ -64,6 +64,7 @@
         <?php endif; ?>
 
         <form action="/admin/profile" method="POST" class="space-y-8" @submit="$refs.weeklyScheduleInput.value = serializeSchedule()">
+            <?= \App\Helpers\Csrf::field() ?>
             <!-- Hidden Input for weekly schedule JSON payload -->
             <input type="hidden" name="weekly_availability" x-ref="weeklyScheduleInput">
 

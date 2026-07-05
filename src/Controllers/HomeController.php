@@ -274,6 +274,10 @@ class HomeController extends BaseController
      */
     public function submitContact(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
         $phone = $_POST['phone'] ?? '';
@@ -318,6 +322,10 @@ class HomeController extends BaseController
      */
     public function logLead(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         // Handle JSON or standard form POST inputs
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
 
@@ -359,6 +367,10 @@ class HomeController extends BaseController
      */
     public function calculateVastuScore(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
 
         $name = $input['name'] ?? '';
@@ -425,6 +437,10 @@ class HomeController extends BaseController
      */
     public function calculateAstroSign(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
 
         $name = $input['name'] ?? '';

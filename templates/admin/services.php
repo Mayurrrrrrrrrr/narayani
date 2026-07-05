@@ -49,6 +49,7 @@
             </div>
 
             <form action="<?= $action === 'create' ? '/admin/services/create' : '/admin/services/edit/' . (int)$service['id'] ?>" method="POST" class="bg-white p-8 rounded-3xl border border-brand-gold/15 shadow-sm space-y-6">
+                <?= \App\Helpers\Csrf::field() ?>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-1.5">
                         <label class="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Service Category</label>
@@ -150,6 +151,7 @@
                                 <td class="px-6 py-4 text-right space-x-3 text-xs">
                                     <a href="/admin/services/edit/<?= (int)$srv['id'] ?>" class="text-brand-purple hover:text-brand-pink font-semibold">Edit</a>
                                     <form action="/admin/services/delete/<?= (int)$srv['id'] ?>" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to retire this offering?')">
+                                        <?= \App\Helpers\Csrf::field() ?>
                                         <button type="submit" class="text-red-500 hover:text-red-700 font-semibold bg-transparent border-0 p-0 cursor-pointer">Delete</button>
                                     </form>
                                 </td>

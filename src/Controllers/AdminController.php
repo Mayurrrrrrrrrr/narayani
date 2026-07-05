@@ -44,6 +44,10 @@ class AdminController extends BaseController
      */
     public function login(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
@@ -194,6 +198,10 @@ class AdminController extends BaseController
      */
     public function uploadReport(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $bookingId = (int)($_POST['booking_id'] ?? 0);
 
         if ($bookingId <= 0 || empty($_FILES['report_file']['tmp_name'])) {
@@ -330,6 +338,10 @@ class AdminController extends BaseController
      */
     public function storeService(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $categoryId = (int)($_POST['category_id'] ?? 0);
         $slug = $_POST['slug'] ?? '';
         $title = $_POST['title'] ?? '';
@@ -392,6 +404,10 @@ class AdminController extends BaseController
      */
     public function updateService(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $serviceId = (int)$id;
         $categoryId = (int)($_POST['category_id'] ?? 0);
         $slug = $_POST['slug'] ?? '';
@@ -423,6 +439,10 @@ class AdminController extends BaseController
      */
     public function deleteService(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $serviceId = (int)$id;
         try {
             $db = Database::getConnection();
@@ -468,6 +488,10 @@ class AdminController extends BaseController
      */
     public function updateProfile(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $name = $_POST['name'] ?? '';
         $photoUrl = $_POST['photo_url'] ?? '';
         $taglineEn = $_POST['tagline_en'] ?? '';
@@ -532,6 +556,10 @@ class AdminController extends BaseController
      */
     public function approveTestimonial(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $testimonialId = (int)$id;
         try {
             $db = Database::getConnection();
@@ -550,6 +578,10 @@ class AdminController extends BaseController
      */
     public function featureTestimonial(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $testimonialId = (int)$id;
         try {
             $db = Database::getConnection();
@@ -568,6 +600,10 @@ class AdminController extends BaseController
      */
     public function storeBlogPost(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $title = $_POST['title'] ?? '';
         $slug = $_POST['slug'] ?? '';
         $excerpt = $_POST['excerpt'] ?? '';
@@ -596,6 +632,10 @@ class AdminController extends BaseController
      */
     public function updateBlogPost(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $blogId = (int)$id;
         try {
             $db = Database::getConnection();
@@ -620,6 +660,10 @@ class AdminController extends BaseController
      */
     public function addressLead(string $id): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $leadId = (int)$id;
         try {
             $db = Database::getConnection();

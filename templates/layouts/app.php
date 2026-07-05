@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title ?? 'Narayani Portal') ?></title>
     <meta name="description" content="<?= htmlspecialchars($meta_description ?? 'Narayani Portal - Pure Wellness and Sacred Transformation') ?>">
+    <meta name="csrf-token" content="<?= htmlspecialchars(\App\Helpers\Csrf::generate()) ?>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,9 +293,13 @@
             if (whatsappBtn) {
                 whatsappBtn.addEventListener('click', () => {
                     // Log lead in background API before redirecting
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
                     fetch('/api/log-lead', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
                         body: JSON.stringify({
                             name: 'WhatsApp Seeker',
                             source: 'WhatsApp Click',
@@ -341,9 +346,13 @@
                     const name = document.getElementById('exit_name').value;
                     const email = document.getElementById('exit_email').value;
 
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
                     fetch('/api/log-lead', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
                         body: JSON.stringify({
                             name: name,
                             email: email,

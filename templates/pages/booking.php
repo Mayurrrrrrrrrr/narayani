@@ -411,7 +411,8 @@ function bookingWizard() {
                     const response = await fetch('/api/book', {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content
                         },
                         body: JSON.stringify(this.bookingData)
                     });
@@ -437,7 +438,8 @@ function bookingWizard() {
                             const verifyRes = await fetch('/api/verify-payment', {
                                 method: 'POST',
                                 headers: {
-                                    'Content-Type': 'application/json'
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content
                                 },
                                 body: JSON.stringify({
                                     booking_id: resData.booking_id,
@@ -465,7 +467,8 @@ function bookingWizard() {
                                 const verifyRes = await fetch('/api/verify-payment', {
                                     method: 'POST',
                                     headers: {
-                                        'Content-Type': 'application/json'
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content
                                     },
                                     body: JSON.stringify({
                                         booking_id: resData.booking_id,

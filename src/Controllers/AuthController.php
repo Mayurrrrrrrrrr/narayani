@@ -29,6 +29,10 @@ class AuthController extends BaseController
      */
     public function login(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 

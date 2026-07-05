@@ -89,11 +89,13 @@
                                 </td>
                                 <td class="px-6 py-4 text-right space-x-2 text-xs">
                                     <form action="/admin/testimonials/approve/<?= (int)$tst['id'] ?>" method="POST" class="inline">
+                                        <?= \App\Helpers\Csrf::field() ?>
                                         <button type="submit" class="text-brand-purple hover:text-brand-pink font-semibold">
                                             <?= $tst['is_approved'] ? 'Disapprove' : 'Approve' ?>
                                         </button>
                                     </form>
                                     <form action="/admin/testimonials/feature/<?= (int)$tst['id'] ?>" method="POST" class="inline">
+                                        <?= \App\Helpers\Csrf::field() ?>
                                         <button type="submit" class="text-brand-gold hover:text-brand-pink font-semibold">
                                             Toggle Feature
                                         </button>
@@ -146,6 +148,7 @@
                                 <td class="px-6 py-4 text-xs"><?= $post['published_at'] ? date('d M Y', strtotime($post['published_at'])) : '—' ?></td>
                                 <td class="px-6 py-4 text-right text-xs">
                                     <form action="/admin/blog/edit/<?= (int)$post['id'] ?>" method="POST" class="inline">
+                                        <?= \App\Helpers\Csrf::field() ?>
                                         <button type="submit" class="text-brand-purple hover:text-brand-pink font-semibold">
                                             Toggle State
                                         </button>
@@ -204,6 +207,7 @@
             </div>
 
             <form action="/admin/blog/create" method="POST" class="space-y-4">
+                <?= \App\Helpers\Csrf::field() ?>
                 <div class="space-y-1.5">
                     <label class="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Post Title</label>
                     <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none">

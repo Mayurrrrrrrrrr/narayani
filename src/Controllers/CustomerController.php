@@ -123,6 +123,10 @@ class CustomerController extends BaseController
      */
     public function updateProfile(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $userId = $_SESSION['user_id'];
         $name = $_POST['name'] ?? '';
         $phone = $_POST['phone'] ?? '';
@@ -174,6 +178,10 @@ class CustomerController extends BaseController
      */
     public function submitReview(): void
     {
+        if (!\App\Helpers\Csrf::validate()) {
+            http_response_code(403);
+            die('Invalid request.');
+        }
         $userId = $_SESSION['user_id'];
         $rating = (float)($_POST['rating'] ?? 5.0);
         $content = $_POST['content'] ?? '';

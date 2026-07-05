@@ -133,6 +133,7 @@
             </div>
 
             <form action="/admin/bookings/upload-report" method="POST" enctype="multipart/form-data" class="space-y-4">
+                <?= \App\Helpers\Csrf::field() ?>
                 <input type="hidden" name="booking_id" :value="selectedBookingId">
                 
                 <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center hover:border-brand-gold/40 transition-colors">
