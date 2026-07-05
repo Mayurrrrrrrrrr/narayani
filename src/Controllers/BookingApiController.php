@@ -402,6 +402,12 @@ class BookingApiController extends BaseController
      */
     public function downloadReceipt(string $id): void
     {
+        // Must be logged in
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /login');
+            exit;
+        }
+
         $bookingId = (int)$id;
 
         if ($bookingId <= 0) {
@@ -411,6 +417,16 @@ class BookingApiController extends BaseController
 
         try {
             $db = \App\Services\Database::getConnection();
+            
+            // Confirm this booking actually belongs to the logged-in user
+            $stmt = $db->prepare("SELECT id FROM bookings WHERE id = ? AND user_id = ? LIMIT 1");
+            $stmt->execute([$bookingId, $_SESSION['user_id']]);
+            
+            if (!$stmt->fetch()) {
+                http_response_code(403);
+                die('Access denied.');
+            }
+
             $bkgStmt = $db->prepare("SELECT * FROM `bookings` WHERE `id` = ? LIMIT 1");
             $bkgStmt->execute([$bookingId]);
             $booking = $bkgStmt->fetch();
