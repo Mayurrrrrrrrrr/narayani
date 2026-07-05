@@ -25,6 +25,15 @@ require_once __DIR__ . '/../src/Helpers/Translator.php';
 
 // 1. PSR-4 Autoloading
 spl_autoload_register(function (string $class) {
+    if (str_starts_with($class, 'PHPMailer\\PHPMailer\\')) {
+        $relative = substr($class, strlen('PHPMailer\\PHPMailer\\'));
+        $file = __DIR__ . '/../src/Helpers/PHPMailer/' . str_replace('\\', '/', $relative) . '.php';
+        if (file_exists($file)) {
+            require $file;
+            return;
+        }
+    }
+
     $prefix = 'App\\';
     $baseDir = __DIR__ . '/../src/';
 

@@ -203,12 +203,12 @@ try {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
     $stmtConsultant->execute([
-        'Acharya Vinay Dev',
+        'Acharya Narayani Devi',
         'Aligning spatial geometries with cosmic rhythms.',
         'ब्रह्मांडीय लय के साथ स्थानिक ज्यामिति का संरेखण।',
-        '/generate-asset?type=placeholder&w=300&h=300&text=Acharya+Vinay',
-        'Acharya Vinay has over 15 years of experience in Vedic Vastu auditing, astrological alignments, and cosmological geometry consultations.',
-        'आचार्य विनय को वैदिक वास्तु ऑडिटिंग, ज्योतिषीय संरेखण और ब्रह्मांडीय ज्यामिति परामर्श में 15 से अधिक वर्षों का अनुभव है।',
+        '/generate-asset?type=placeholder&w=300&h=300&text=Acharya+Narayani',
+        'Acharya Narayani Devi has over 15 years of experience in Vedic Vastu auditing, astrological alignments, and cosmological geometry consultations.',
+        'आचार्य नारायणी देवी को वैदिक वास्तु ऑडिटिंग, ज्योतिषीय संरेखण और ब्रह्मांडीय ज्यामिति परामर्श में 15 से अधिक वर्षों का अनुभव है।',
         $credentials,
         $modes,
         $availability

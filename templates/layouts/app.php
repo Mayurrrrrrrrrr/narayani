@@ -50,7 +50,7 @@
         }
         h1, h2, h3, h4, h5, h6, .font-serif {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif !important;
-            line-height: 1.5 !important;
+            line-height: 1.9 !important;
         }
         <?php endif; ?>
     </style>

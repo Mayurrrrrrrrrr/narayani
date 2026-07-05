@@ -1,11 +1,11 @@
 <?php
 // Fallback values if database row is empty
-$name = $consultant['name'] ?? 'Acharya Vinay Dev';
+$name = $consultant['name'] ?? 'Acharya Narayani Devi';
 $tagline = db_trans($consultant, 'tagline');
 if (empty($tagline)) {
     $tagline = t('about_tagline');
 }
-$photoUrl = $consultant['photo_url'] ?? '/generate-asset?type=placeholder&w=400&h=400&text=Acharya+Vinay';
+$photoUrl = $consultant['photo_url'] ?? '/generate-asset?type=placeholder&w=400&h=400&text=Acharya+Narayani';
 $bio = db_trans($consultant, 'bio');
 if (empty($bio)) {
     $bio = t('about_bio_default');
