@@ -48,7 +48,7 @@ $availability = json_decode($consultant['weekly_availability'] ?? '[]', true) ?:
                 <div class="grid grid-cols-1 gap-2.5">
                     <?php foreach ($credentials as $cred): ?>
                         <div class="flex items-center space-x-2.5 bg-[#FCFAF7] border border-brand-gold/10 px-3.5 py-2.5 rounded-xl">
-                            <span class="w-1.5 h-1.5 rounded-full bg-brand-pink shrink-0"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-red shrink-0"></span>
                             <span class="text-xs font-semibold text-brand-text tracking-wide uppercase"><?= htmlspecialchars($cred) ?></span>
                         </div>
                     <?php endforeach; ?>
@@ -95,7 +95,7 @@ $availability = json_decode($consultant['weekly_availability'] ?? '[]', true) ?:
                     <ul class="space-y-3">
                         <?php foreach ($modes as $mode): ?>
                             <li class="flex items-center space-x-3 text-sm font-medium text-slate-600">
-                                <svg class="w-4 h-4 text-brand-pink shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-brand-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                 </svg>
                                 <span><?= htmlspecialchars($mode) ?></span>

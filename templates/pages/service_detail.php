@@ -102,7 +102,7 @@ $workflows = [
                 <span class="text-xs text-slate-400 font-light block"><?= t('includes_report') ?></span>
             </div>
             
-            <a href="/booking?service_id=<?= (int)$service['id'] ?>" class="w-full text-center px-8 py-4 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold text-sm tracking-wider uppercase inline-block shadow-md shadow-brand-pink/20 hover:opacity-95 transition-opacity">
+            <a href="/booking?service_id=<?= (int)$service['id'] ?>" class="w-full text-center px-8 py-4 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white font-semibold text-sm tracking-wider uppercase inline-block shadow-md shadow-brand-red/20 hover:opacity-95 transition-opacity">
                 <?= t('book_now_btn') ?>
             </a>
         </div>
@@ -227,7 +227,7 @@ $workflows = [
         <span class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold leading-none"><?= t('resonance_fee') ?></span>
         <span class="text-lg font-serif text-brand-gold font-bold">₹<?= number_format((float)$service['price_inr'], 2) ?></span>
     </div>
-    <a href="/booking?service_id=<?= (int)$service['id'] ?>" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md shadow-brand-pink/20">
+    <a href="/booking?service_id=<?= (int)$service['id'] ?>" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md shadow-brand-red/20">
         <?= t('book_now') ?>
     </a>
 </div>

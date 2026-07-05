@@ -14,7 +14,7 @@
     </div>
 
     <div class="pt-4">
-        <a href="/" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-sm font-semibold tracking-wider hover:opacity-90 transition-opacity uppercase shadow-md shadow-brand-pink/20">
+        <a href="/" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-sm font-semibold tracking-wider hover:opacity-90 transition-opacity uppercase shadow-md shadow-brand-red/20">
             Return to Core Sanctuary
         </a>
     </div>

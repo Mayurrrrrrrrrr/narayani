@@ -1,7 +1,7 @@
 <section class="py-24 max-w-7xl mx-auto px-6 space-y-16">
     <!-- Breadcrumb & Header -->
     <div class="space-y-4">
-        <a href="/services" class="text-xs uppercase tracking-widest text-brand-gold hover:text-brand-pink font-semibold inline-flex items-center space-x-2">
+        <a href="/services" class="text-xs uppercase tracking-widest text-brand-gold hover:text-brand-red font-semibold inline-flex items-center space-x-2">
             <span><?= t('return_to_pathways') ?></span>
         </a>
         
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             
-                            <a href="/booking?service_id=<?= urlencode((string)$srv['id']) ?>" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold text-xs tracking-wider uppercase inline-block shadow-md shadow-brand-pink/15">
+                            <a href="/booking?service_id=<?= urlencode((string)$srv['id']) ?>" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white font-semibold text-xs tracking-wider uppercase inline-block shadow-md shadow-brand-red/15">
                                 <?= t('book_consultation') ?>
                             </a>
                         </div>

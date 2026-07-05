@@ -272,7 +272,7 @@ $sessionUser = [
                 <a :href="'/booking/receipt/' + successBookingId" class="px-6 py-3 rounded-full border border-brand-gold text-brand-gold text-xs font-semibold tracking-wider uppercase hover:bg-brand-gold hover:text-white transition-colors">
                     Download PDF Receipt
                 </a>
-                <a href="/dashboard" class="px-8 py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md shadow-brand-pink/20">
+                <a href="/dashboard" class="px-8 py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md shadow-brand-red/20">
                     Go to Portal Dashboard
                 </a>
             </div>

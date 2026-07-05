@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <button type="submit" :disabled="loading" class="w-full py-3.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
+                <button type="submit" :disabled="loading" class="w-full py-3.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
                     <span x-show="!loading">Locate Cosmic Sign</span>
                     <span x-show="loading">Aligning Stellar Maps...</span>
                 </button>
@@ -135,7 +135,7 @@
                     <button type="button" @click="results = null; name = ''; email = ''; phone = ''; birth_date = '';" class="px-5 py-2.5 rounded-full border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-wider hover:bg-slate-50 transition-colors">
                         Re-Calculate
                     </button>
-                    <a href="/booking?service_id=3" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold uppercase tracking-wider shadow-md">
+                    <a href="/booking?service_id=3" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold uppercase tracking-wider shadow-md">
                         Book Natal Chart Reading
                     </a>
                 </div>

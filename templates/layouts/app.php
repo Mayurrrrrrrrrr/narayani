@@ -6,6 +6,7 @@
     <title><?= htmlspecialchars($title ?? 'Narayani Portal') ?></title>
     <meta name="description" content="<?= htmlspecialchars($meta_description ?? 'Narayani Portal - Pure Wellness and Sacred Transformation') ?>">
     <meta name="csrf-token" content="<?= htmlspecialchars(\App\Helpers\Csrf::generate()) ?>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕉</text></svg>">
     
     <!-- Open Graph / Social previews -->
     <meta property="og:type" content="website">
@@ -100,7 +101,7 @@
     </style>
 </head>
 
-<body class="font-sans text-slate-800 antialiased min-h-screen flex flex-col bg-white overflow-x-hidden break-words selection:bg-brand-gold/20 selection:text-brand-purple">
+<body class="font-sans text-slate-800 antialiased min-h-screen flex flex-col bg-white overflow-x-hidden break-words selection:bg-brand-gold/20 selection:text-brand-teal">
     
     <!-- Global Header -->
     <header class="fixed w-full top-0 z-50 glass border-b border-brand-gold/10" x-data="{ mobileMenuOpen: false }">
@@ -118,7 +119,7 @@
                     <circle cx="50" cy="50" r="5" fill="currentColor"/>
                 </svg>
                 <div class="flex flex-col">
-                    <span class="font-serif text-xl tracking-widest text-brand-gold group-hover:text-brand-pink transition-colors uppercase">Narayani</span>
+                    <span class="font-serif text-xl tracking-widest text-brand-gold group-hover:text-brand-red transition-colors uppercase">Narayani</span>
                     <span class="text-[9px] uppercase tracking-[0.3em] text-slate-500">Sacred Portal</span>
                 </div>
             </a>
@@ -283,7 +284,7 @@
                            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none">
                 </div>
 
-                <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
+                <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
                     <?= t('exit_intent_btn') ?>
                 </button>
             </form>

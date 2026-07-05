@@ -10,7 +10,7 @@ if (!defined('CSP_NONCE')) {
 }
 
 // Content Security Policy
-header("Content-Security-Policy: default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms 'nonce-" . CSP_NONCE . "'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.razorpay.com https://narayani.yuktaa.com https://www.google-analytics.com https://*.clarity.ms; frame-src https://*.razorpay.com; connect-src 'self' https://*.razorpay.com https://www.google-analytics.com https://*.clarity.ms;");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' https://checkout.razorpay.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms 'nonce-" . CSP_NONCE . "'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.razorpay.com https://narayani.yuktaa.com https://www.google-analytics.com https://*.clarity.ms; frame-src https://*.razorpay.com; connect-src 'self' https://*.razorpay.com https://www.google-analytics.com https://*.clarity.ms;");
 
 $_SERVER['REDIRECT_STATUS'] = 200;
 if (function_exists('putenv')) {

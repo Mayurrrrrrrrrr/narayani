@@ -42,7 +42,7 @@
                 <textarea name="message" required rows="4" class="w-full bg-[#FCFAF7] border border-brand-gold/20 rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-gold transition-colors" placeholder="Describe your cosmic intent..."></textarea>
             </div>
 
-            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-purple to-brand-pink text-white font-bold tracking-wider hover:opacity-90 transition-opacity uppercase shadow-lg shadow-brand-pink/20">
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-teal to-brand-red text-white font-bold tracking-wider hover:opacity-90 transition-opacity uppercase shadow-lg shadow-brand-red/20">
                 <?= t('contact_btn') ?>
             </button>
         </form>

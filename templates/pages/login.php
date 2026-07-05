@@ -40,7 +40,7 @@
 
             <button 
                 type="submit" 
-                class="w-full py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold text-xs tracking-wider uppercase shadow-md shadow-brand-pink/20 hover:opacity-95 transition-opacity"
+                class="w-full py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white font-semibold text-xs tracking-wider uppercase shadow-md shadow-brand-red/20 hover:opacity-95 transition-opacity"
             >
                 Enter Portal
             </button>

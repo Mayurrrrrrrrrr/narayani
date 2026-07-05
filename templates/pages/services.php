@@ -12,7 +12,7 @@
     <div class="space-y-12">
         <?php if (!empty($categories)): ?>
             <?php foreach ($categories as $cat): ?>
-                <div class="glass bg-white p-8 md:p-12 rounded-3xl border border-brand-gold/15 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="glass bg-white p-8 md:p-12 rounded-3xl border border-brand-gold/15 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,105,92,0.15)] transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
                     <!-- Left: Details & Counter -->
                     <div class="lg:col-span-8 space-y-6">
@@ -29,7 +29,7 @@
                         </p>
 
                         <div class="pt-4">
-                            <a href="/services/<?= urlencode($cat['slug']) ?>" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold text-xs tracking-wider uppercase inline-block shadow-md shadow-brand-pink/15">
+                            <a href="/services/<?= urlencode($cat['slug']) ?>" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white font-semibold text-xs tracking-wider uppercase inline-block shadow-md shadow-brand-red/15">
                                 <?= t('explore_category', ['name' => htmlspecialchars(db_trans($cat, 'name'))]) ?> &rarr;
                             </a>
                         </div>

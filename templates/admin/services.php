@@ -104,7 +104,7 @@
                     <label for="is_active" class="text-xs font-semibold text-slate-600">This offering is active and visible to seekers</label>
                 </div>
 
-                <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md">
+                <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md">
                     Save Offering Coordinates
                 </button>
             </form>
@@ -149,7 +149,7 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 text-right space-x-3 text-xs">
-                                    <a href="/admin/services/edit/<?= (int)$srv['id'] ?>" class="text-brand-purple hover:text-brand-pink font-semibold">Edit</a>
+                                    <a href="/admin/services/edit/<?= (int)$srv['id'] ?>" class="text-brand-teal hover:text-brand-red font-semibold">Edit</a>
                                     <form action="/admin/services/delete/<?= (int)$srv['id'] ?>" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to retire this offering?')">
                                         <?= \App\Helpers\Csrf::field() ?>
                                         <button type="submit" class="text-red-500 hover:text-red-700 font-semibold bg-transparent border-0 p-0 cursor-pointer">Delete</button>

@@ -239,7 +239,7 @@
                 <button type="button" @click="step++" x-show="step < 5" class="px-6 py-2.5 rounded-full bg-slate-800 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-700 transition-colors">
                     Next Section
                 </button>
-                <button type="button" @click="submitQuiz()" x-show="step === 5" :disabled="loading" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-bold uppercase tracking-wider shadow-md">
+                <button type="button" @click="submitQuiz()" x-show="step === 5" :disabled="loading" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-bold uppercase tracking-wider shadow-md">
                     <span x-show="!loading">Audit Results</span>
                     <span x-show="loading">Auditing...</span>
                 </button>

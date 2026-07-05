@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md">
+            <button type="submit" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md">
                 Deploy Settings Configurations
             </button>
         </form>

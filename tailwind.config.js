@@ -14,14 +14,16 @@ module.exports = {
       },
       colors: {
         brand: {
-          bg: '#FCFAF7',
+          bg: '#FAF5E9',
           elevated: '#FFFFFF',
           card: '#FFFFFF',
-          pink: '#E25F8C',
-          purple: '#8B5CF6',
+          pink: '#D32F2F', /* Keeping pink key but mapping to Red for quick replacement */
+          purple: '#00695C', /* Keeping purple key but mapping to Teal for quick replacement */
+          red: '#D32F2F',
+          teal: '#00695C',
           blue: '#3B82F6',
-          gold: '#C5A059',
-          text: '#3C3530',
+          gold: '#C89B3C',
+          text: '#3E2723',
         }
       }
     }

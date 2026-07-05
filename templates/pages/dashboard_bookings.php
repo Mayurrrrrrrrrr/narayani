@@ -64,11 +64,11 @@
                                     <td class="px-6 py-4 font-semibold text-brand-gold">₹<?= number_format((float)$bkg['price_inr'], 2) ?></td>
                                     <td class="px-6 py-4 text-right space-x-3 text-xs">
                                         <?php if ($bkg['status'] === 'confirmed'): ?>
-                                            <a href="/booking/receipt/<?= (int)$bkg['id'] ?>" class="text-brand-gold hover:text-brand-pink font-semibold">
+                                            <a href="/booking/receipt/<?= (int)$bkg['id'] ?>" class="text-brand-gold hover:text-brand-red font-semibold">
                                                 Invoice PDF
                                             </a>
                                             <?php if (!empty($bkg['report_path']) && file_exists(dirname(__DIR__, 2) . $bkg['report_path'])): ?>
-                                                <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-purple hover:text-brand-pink font-semibold">
+                                                <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-teal hover:text-brand-red font-semibold">
                                                     Report
                                                 </a>
                                             <?php endif; ?>

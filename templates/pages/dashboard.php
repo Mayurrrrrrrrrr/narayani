@@ -59,7 +59,7 @@
                         <!-- Sticky Meeting Actions -->
                         <div class="pt-2">
                             <?php if ($isOnline): ?>
-                                <a href="<?= $meetingLink ?>" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase inline-flex items-center space-x-2 shadow-md shadow-brand-pink/20">
+                                <a href="<?= $meetingLink ?>" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase inline-flex items-center space-x-2 shadow-md shadow-brand-red/20">
                                     <span>Enter Virtual Portal</span>
                                 </a>
                             <?php else: ?>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="border-t border-slate-50 pt-4 mt-4 flex items-center justify-between">
                                     <span class="text-[10px] uppercase font-bold text-slate-400"><?= htmlspecialchars($bkg['consultation_mode']) ?></span>
-                                    <a href="/booking/receipt/<?= (int)$bkg['id'] ?>" class="text-[10px] uppercase font-semibold text-brand-gold hover:text-brand-pink tracking-wider">
+                                    <a href="/booking/receipt/<?= (int)$bkg['id'] ?>" class="text-[10px] uppercase font-semibold text-brand-gold hover:text-brand-red tracking-wider">
                                         Receipt PDF
                                     </a>
                                 </div>
@@ -130,7 +130,7 @@
                 <span class="text-brand-gold font-bold text-glow text-3xl font-serif">Empty Cosmos</span>
                 <p class="text-xs text-slate-500 font-light max-w-xs mx-auto mt-2">You currently have no active or scheduled alignment consultations. Ready to initiate?</p>
                 <div class="pt-6">
-                    <a href="/services" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase inline-block shadow-md shadow-brand-pink/20">
+                    <a href="/services" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase inline-block shadow-md shadow-brand-red/20">
                         Initiate Sacred Path
                     </a>
                 </div>
@@ -177,7 +177,7 @@
                               class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"></textarea>
                 </div>
 
-                <button type="submit" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
+                <button type="submit" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:opacity-90 transition-opacity">
                     Deploy Feedback
                 </button>
             </form>

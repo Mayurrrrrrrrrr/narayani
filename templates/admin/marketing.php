@@ -90,13 +90,13 @@
                                 <td class="px-6 py-4 text-right space-x-2 text-xs">
                                     <form action="/admin/testimonials/approve/<?= (int)$tst['id'] ?>" method="POST" class="inline">
                                         <?= \App\Helpers\Csrf::field() ?>
-                                        <button type="submit" class="text-brand-purple hover:text-brand-pink font-semibold">
+                                        <button type="submit" class="text-brand-teal hover:text-brand-red font-semibold">
                                             <?= $tst['is_approved'] ? 'Disapprove' : 'Approve' ?>
                                         </button>
                                     </form>
                                     <form action="/admin/testimonials/feature/<?= (int)$tst['id'] ?>" method="POST" class="inline">
                                         <?= \App\Helpers\Csrf::field() ?>
-                                        <button type="submit" class="text-brand-gold hover:text-brand-pink font-semibold">
+                                        <button type="submit" class="text-brand-gold hover:text-brand-red font-semibold">
                                             Toggle Feature
                                         </button>
                                     </form>
@@ -149,7 +149,7 @@
                                 <td class="px-6 py-4 text-right text-xs">
                                     <form action="/admin/blog/edit/<?= (int)$post['id'] ?>" method="POST" class="inline">
                                         <?= \App\Helpers\Csrf::field() ?>
-                                        <button type="submit" class="text-brand-purple hover:text-brand-pink font-semibold">
+                                        <button type="submit" class="text-brand-teal hover:text-brand-red font-semibold">
                                             Toggle State
                                         </button>
                                     </form>
@@ -237,7 +237,7 @@
                     <button type="button" @click="openBlogModal = false" class="w-1/2 py-2.5 rounded-full border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                         Cancel
                     </button>
-                    <button type="submit" class="w-1/2 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold uppercase tracking-wider shadow-md">
+                    <button type="submit" class="w-1/2 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold uppercase tracking-wider shadow-md">
                         Deploy Post
                     </button>
                 </div>

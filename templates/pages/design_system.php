@@ -48,7 +48,7 @@
                 <div class="text-[10px] text-slate-500 font-mono">#3B82F6</div>
             </div>
             <div class="space-y-2 text-center">
-                <div class="h-16 rounded-xl border border-brand-gold/15 bg-gradient-to-tr from-brand-purple via-brand-pink to-brand-gold"></div>
+                <div class="h-16 rounded-xl border border-brand-gold/15 bg-gradient-to-tr from-brand-teal via-brand-red to-brand-gold"></div>
                 <div class="text-xs font-semibold">Lotus Grad</div>
                 <div class="text-[10px] text-slate-500 font-mono">Gradient</div>
             </div>
@@ -61,7 +61,7 @@
         <div class="flex flex-wrap gap-6 items-center">
             <div class="space-y-2">
                 <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Gradient Primary Button</div>
-                <button class="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink hover:from-brand-pink hover:to-brand-gold text-white font-medium tracking-wider uppercase shadow-lg shadow-brand-pink/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                <button class="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red hover:from-brand-red hover:to-brand-gold text-white font-medium tracking-wider uppercase shadow-lg shadow-brand-red/20 transition-all duration-300 transform hover:-translate-y-0.5">
                     Explore Sanctum
                 </button>
             </div>
@@ -87,9 +87,9 @@
             <!-- Glow Card 1 -->
             <div class="relative group">
                 <!-- Glowing background contour -->
-                <div class="absolute -inset-0.5 bg-gradient-to-tr from-brand-purple to-brand-gold rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="absolute -inset-0.5 bg-gradient-to-tr from-brand-teal to-brand-gold rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
                 <div class="relative bg-white border border-brand-gold/15 p-8 rounded-2xl space-y-4">
-                    <span class="text-[10px] font-mono uppercase text-brand-pink font-semibold">Glow Mode 01</span>
+                    <span class="text-[10px] font-mono uppercase text-brand-red font-semibold">Glow Mode 01</span>
                     <h4 class="font-serif text-xl text-brand-text">Spiritual Alignment Card</h4>
                     <p class="text-sm text-slate-600 font-light leading-relaxed">
                         Features a subtle multi-color glowing aura effect underlaid dynamically using CSS blur filters.

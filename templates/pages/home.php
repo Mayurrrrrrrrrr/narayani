@@ -7,7 +7,7 @@
     
     <!-- Abstract warm radial gradients -->
     <div class="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-brand-gold/5 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[35rem] h-[35rem] bg-brand-pink/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[35rem] h-[35rem] bg-brand-red/5 rounded-full blur-[140px] pointer-events-none"></div>
 
     <div class="max-w-6xl mx-auto px-6 text-center relative z-10 space-y-8">
         <!-- Logo Lockup -->
@@ -34,7 +34,7 @@
 
         <!-- CTAs -->
         <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/services" class="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white font-semibold tracking-wider hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.3)] transition-all duration-300 uppercase shadow-lg shadow-brand-pink/20 text-center">
+            <a href="/services" class="px-8 py-4 w-full sm:w-auto rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white font-semibold tracking-wider hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,105,92,0.3)] transition-all duration-300 uppercase shadow-lg shadow-brand-red/20 text-center">
                 <?= t('explore_alignments') ?>
             </a>
             <a href="/booking" class="px-8 py-4 w-full sm:w-auto rounded-full glass border border-brand-gold/30 text-brand-gold font-semibold tracking-wider hover:bg-brand-gold/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 uppercase text-center">
@@ -92,8 +92,8 @@
                     <!-- Service Category Preview Card -->
                     <div class="relative group">
                         <!-- Glowing aura background -->
-                        <div class="absolute -inset-0.5 bg-gradient-to-tr from-brand-purple to-brand-gold rounded-3xl blur opacity-0 group-hover:opacity-15 transition duration-500"></div>
-                        <div class="relative bg-white border border-brand-gold/15 p-8 rounded-3xl space-y-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 flex flex-col justify-between h-96">
+                        <div class="absolute -inset-0.5 bg-gradient-to-tr from-brand-teal to-brand-gold rounded-3xl blur opacity-0 group-hover:opacity-15 transition duration-500"></div>
+                        <div class="relative bg-white border border-brand-gold/15 p-8 rounded-3xl space-y-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,105,92,0.15)] transition-all duration-300 flex flex-col justify-between h-96">
                             <div class="space-y-4">
                                 <!-- Dynamic Icon type mapping -->
                                 <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/15 flex items-center justify-center text-brand-gold transform group-hover:scale-110 transition-transform duration-300">
@@ -111,7 +111,7 @@
                                 <p class="text-sm text-slate-600 font-light leading-relaxed"><?= htmlspecialchars(db_trans($cat, 'description')) ?></p>
                             </div>
                             <div class="pt-6">
-                                <a href="/services" class="text-xs uppercase tracking-widest text-brand-gold font-bold hover:text-brand-pink flex items-center space-x-2 group-hover:translate-x-1 transition-transform duration-300">
+                                <a href="/services" class="text-xs uppercase tracking-widest text-brand-gold font-bold hover:text-brand-red flex items-center space-x-2 group-hover:translate-x-1 transition-transform duration-300">
                                     <span><?= t('view_program') ?></span>
                                     <span>&rarr;</span>
                                 </a>
@@ -134,7 +134,7 @@
             <div class="flex justify-center">
                 <div class="relative group max-w-md w-full">
                     <!-- Gold shadow container -->
-                    <div class="absolute -inset-2 bg-gradient-to-tr from-brand-gold to-brand-purple rounded-3xl blur opacity-10 group-hover:opacity-25 transition duration-500"></div>
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-brand-gold to-brand-teal rounded-3xl blur opacity-10 group-hover:opacity-25 transition duration-500"></div>
                     <div class="relative aspect-square rounded-2xl overflow-hidden border-2 border-brand-gold/20 shadow-2xl bg-[#FCFAF7] p-8">
                         <img src="<?= htmlspecialchars($consultant['photo_url']) ?>" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500" alt="<?= htmlspecialchars($consultant['name']) ?>" loading="lazy">
                     </div>
@@ -218,32 +218,32 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <!-- Vastu Score Card -->
-            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300">
+            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,105,92,0.15)] transition-all duration-300">
                 <div class="space-y-4">
-                    <span class="text-[10px] font-mono uppercase text-brand-pink font-semibold">Complimentary Tool</span>
+                    <span class="text-[10px] font-mono uppercase text-brand-red font-semibold">Complimentary Tool</span>
                     <h4 class="font-serif text-2xl text-brand-text"><?= t('vastu_score_tool') ?></h4>
                     <p class="text-sm text-slate-600 leading-relaxed font-light">
                         Provide your main entrance direction and property shapes to receive a personalized compatibility index report calculated using spatial algorithms.
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="/tools/vastu-score" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(139,92,246,0.3)] transition-all duration-300">
+                    <a href="/tools/vastu-score" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,105,92,0.3)] transition-all duration-300">
                         <?= t('submit') ?>
                     </a>
                 </div>
             </div>
 
             <!-- Natal Sign Finder Card -->
-            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300">
+            <div class="glass bg-[#FCFAF7] p-8 rounded-3xl border border-brand-gold/15 space-y-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,105,92,0.15)] transition-all duration-300">
                 <div class="space-y-4">
-                    <span class="text-[10px] font-mono uppercase text-brand-pink font-semibold">Complimentary Tool</span>
+                    <span class="text-[10px] font-mono uppercase text-brand-red font-semibold">Complimentary Tool</span>
                     <h4 class="font-serif text-2xl text-brand-text"><?= t('cosmic_sign_finder') ?></h4>
                     <p class="text-sm text-slate-600 leading-relaxed font-light">
                         Submit your exact birth coordinate data to map moon positions and locate corresponding constellations and planetary transits.
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="/tools/sun-moon-sign" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(139,92,246,0.3)] transition-all duration-300">
+                    <a href="/tools/sun-moon-sign" class="px-6 py-3 rounded-full bg-brand-gold text-white font-medium text-xs uppercase tracking-wider inline-block hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,105,92,0.3)] transition-all duration-300">
                         <?= t('submit') ?>
                     </a>
                 </div>

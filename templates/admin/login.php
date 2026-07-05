@@ -1,8 +1,8 @@
 <section class="min-h-[80vh] flex items-center justify-center py-20 px-6 bg-[#07060B]">
     <div class="glass bg-[#11101A] max-w-md w-full p-10 rounded-3xl border border-brand-gold/20 shadow-2xl relative overflow-hidden">
         <!-- Floating Ambient Glows -->
-        <div class="absolute -top-24 -left-24 w-48 h-48 bg-brand-purple/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-brand-pink/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-brand-teal/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="text-center space-y-3 relative z-10">
             <svg class="w-12 h-12 text-brand-gold mx-auto" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -37,7 +37,7 @@
                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors">
             </div>
 
-            <button type="submit" class="w-full py-3.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity shadow-lg shadow-brand-pink/15">
+            <button type="submit" class="w-full py-3.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity shadow-lg shadow-brand-red/15">
                 Authorize Session
             </button>
         </form>

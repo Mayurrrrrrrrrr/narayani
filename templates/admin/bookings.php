@@ -101,11 +101,11 @@
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 text-right space-x-2 text-xs">
-                                        <button @click="selectedBookingId = <?= (int)$bkg['id'] ?>; openUploadModal = true" class="text-brand-purple hover:text-brand-pink font-semibold">
+                                        <button @click="selectedBookingId = <?= (int)$bkg['id'] ?>; openUploadModal = true" class="text-brand-teal hover:text-brand-red font-semibold">
                                             Upload PDF
                                         </button>
                                         <?php if (!empty($bkg['report_path'])): ?>
-                                            <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-gold hover:text-brand-pink font-semibold">
+                                            <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-gold hover:text-brand-red font-semibold">
                                                 Download Report
                                             </a>
                                         <?php endif; ?>
@@ -144,7 +144,7 @@
                     <button type="button" @click="openUploadModal = false" class="w-1/2 py-2.5 rounded-full border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                         Cancel
                     </button>
-                    <button type="submit" class="w-1/2 py-2.5 rounded-full bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-semibold uppercase tracking-wider shadow-md">
+                    <button type="submit" class="w-1/2 py-2.5 rounded-full bg-gradient-to-r from-brand-teal to-brand-red text-white text-xs font-semibold uppercase tracking-wider shadow-md">
                         Deploy Report
                     </button>
                 </div>

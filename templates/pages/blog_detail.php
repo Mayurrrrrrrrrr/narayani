@@ -58,7 +58,7 @@ $emailLink = 'mailto:?subject=' . urlencode('Narayani Wisdom: ' . $postTitle) . 
                         <span>Telegram</span>
                     </a>
                     <span>•</span>
-                    <a href="<?= $emailLink ?>" class="hover:text-brand-pink transition-colors flex items-center space-x-1.5">
+                    <a href="<?= $emailLink ?>" class="hover:text-brand-red transition-colors flex items-center space-x-1.5">
                         <span>Email</span>
                     </a>
                 </div>
@@ -96,7 +96,7 @@ $emailLink = 'mailto:?subject=' . urlencode('Narayani Wisdom: ' . $postTitle) . 
                                 </div>
                                 <div class="border-t border-slate-50 pt-4 mt-4 flex items-center justify-between">
                                     <span class="text-xs font-semibold text-brand-gold">₹<?= number_format((float)$srv['price_inr'], 2) ?></span>
-                                    <a href="/booking?service_id=<?= (int)$srv['id'] ?>" class="text-[10px] uppercase font-bold text-brand-gold hover:text-brand-pink tracking-wider">
+                                    <a href="/booking?service_id=<?= (int)$srv['id'] ?>" class="text-[10px] uppercase font-bold text-brand-gold hover:text-brand-red tracking-wider">
                                         <?= t('book_consultation') ?>
                                     </a>
                                 </div>

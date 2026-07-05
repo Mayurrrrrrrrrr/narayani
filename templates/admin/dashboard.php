@@ -60,7 +60,7 @@
             </div>
             <div class="glass bg-white p-6 rounded-2xl border border-brand-gold/15 shadow-sm text-center">
                 <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Open Leads</span>
-                <span class="text-3xl font-serif text-brand-purple font-bold mt-1 block"><?= (int)$leadsCount ?></span>
+                <span class="text-3xl font-serif text-brand-teal font-bold mt-1 block"><?= (int)$leadsCount ?></span>
             </div>
         </div>
 
@@ -126,23 +126,23 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono text-brand-text">
                 <div class="p-3 bg-white rounded border border-brand-gold/15 flex justify-between shadow-sm">
                     <span>GET /admin</span>
-                    <span class="text-brand-pink font-semibold">Admin@dashboard</span>
+                    <span class="text-brand-red font-semibold">Admin@dashboard</span>
                 </div>
                 <div class="p-3 bg-white rounded border border-brand-gold/15 flex justify-between shadow-sm">
                     <span>GET /admin/bookings</span>
-                    <span class="text-brand-pink font-semibold">Admin@bookings</span>
+                    <span class="text-brand-red font-semibold">Admin@bookings</span>
                 </div>
                 <div class="p-3 bg-white rounded border border-brand-gold/15 flex justify-between shadow-sm">
                     <span>GET /admin/services</span>
-                    <span class="text-brand-pink font-semibold">Admin@services</span>
+                    <span class="text-brand-red font-semibold">Admin@services</span>
                 </div>
                 <div class="p-3 bg-white rounded border border-brand-gold/15 flex justify-between shadow-sm">
                     <span>GET /admin/profile</span>
-                    <span class="text-brand-pink font-semibold">Admin@profile</span>
+                    <span class="text-brand-red font-semibold">Admin@profile</span>
                 </div>
                 <div class="p-3 bg-white rounded border border-brand-gold/15 flex justify-between shadow-sm">
                     <span>GET /admin/marketing</span>
-                    <span class="text-brand-pink font-semibold">Admin@marketing</span>
+                    <span class="text-brand-red font-semibold">Admin@marketing</span>
                 </div>
             </div>
         </div>

@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="px-6 pb-6 pt-4 border-t border-slate-50 mt-4 flex items-center justify-between">
-                        <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" class="text-xs uppercase font-semibold text-brand-gold hover:text-brand-pink tracking-wider inline-flex items-center space-x-1">
+                        <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" class="text-xs uppercase font-semibold text-brand-gold hover:text-brand-red tracking-wider inline-flex items-center space-x-1">
                             <span><?= t('read_article') ?></span>
                             <span>→</span>
                         </a>
