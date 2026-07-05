@@ -53,7 +53,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&family=Noto+Sans+Devanagari:wght@100..900&family=Noto+Serif+Devanagari:wght@100..900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS (Compiled Production Stylesheet) -->
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/app.css?v=<?= time() ?>">
     
     <!-- Alpine.js -->
     <script defer nonce="<?= CSP_NONCE ?>" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
