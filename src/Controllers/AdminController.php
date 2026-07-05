@@ -51,8 +51,8 @@ class AdminController extends BaseController
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
-        $adminEmail = \App\Helpers\Env::get('ADMIN_EMAIL', 'admin@narayani.com');
-        $adminPassword = \App\Helpers\Env::get('ADMIN_PASSWORD', 'NarayaniAdmin@2026');
+        $adminEmail = \App\Helpers\Env::get('ADMIN_EMAIL');
+        $adminPassword = \App\Helpers\Env::get('ADMIN_PASSWORD');
 
         if ($email === $adminEmail && $password === $adminPassword) {
             session_regenerate_id(true);
