@@ -318,6 +318,12 @@ class HomeController extends BaseController
             http_response_code(403);
             die('Invalid request.');
         }
+
+        if (!\App\Helpers\RateLimiter::check('contact_submission', 10, 3600)) {
+            $_SESSION['contact_error'] = 'Too many contact submissions. Please try again in an hour.';
+            header('Location: /contact');
+            exit;
+        }
         $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
         $phone = $_POST['phone'] ?? '';
@@ -411,6 +417,11 @@ class HomeController extends BaseController
             http_response_code(403);
             die('Invalid request.');
         }
+
+        if (!\App\Helpers\RateLimiter::check('tool_submission', 10, 3600)) {
+            $this->json(['error' => 'Too many submissions. Please wait an hour.'], 429);
+            return;
+        }
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
 
         $name = $input['name'] ?? '';
@@ -480,6 +491,11 @@ class HomeController extends BaseController
         if (!\App\Helpers\Csrf::validate()) {
             http_response_code(403);
             die('Invalid request.');
+        }
+
+        if (!\App\Helpers\RateLimiter::check('tool_submission', 10, 3600)) {
+            $this->json(['error' => 'Too many submissions. Please wait an hour.'], 429);
+            return;
         }
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
 

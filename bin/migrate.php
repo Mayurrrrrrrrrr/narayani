@@ -182,6 +182,18 @@ try {
     ");
     echo "[OK] Created table: leads\n";
 
+    // 10. Create rate_limits table
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS `rate_limits` (
+            `id` INT AUTO_INCREMENT PRIMARY KEY,
+            `ip_address` VARCHAR(45) NOT NULL,
+            `action` VARCHAR(50) NOT NULL,
+            `timestamp` INT NOT NULL,
+            KEY `ip_action_time` (`ip_address`, `action`, `timestamp`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ");
+    echo "[OK] Created table: rate_limits\n";
+
     echo "=== Seeding Tables ===\n";
 
     // Seed User

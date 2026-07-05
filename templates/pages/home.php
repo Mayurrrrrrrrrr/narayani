@@ -254,7 +254,7 @@
 </section>
 
 <!-- Testimonial Carousel Script -->
-<script>
+<script nonce="<?= CSP_NONCE ?>">
     document.addEventListener('DOMContentLoaded', () => {
         let currentSlide = 0;
         const slides = document.querySelectorAll('[data-slide]');

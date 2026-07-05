@@ -48,6 +48,13 @@ class AdminController extends BaseController
             http_response_code(403);
             die('Invalid request.');
         }
+
+        if (!\App\Helpers\RateLimiter::check('admin_login', 5, 60)) {
+            $_SESSION['admin_login_error'] = 'Too many login attempts. Please try again in 1 minute.';
+            header('Location: /admin/login');
+            exit;
+        }
+
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 

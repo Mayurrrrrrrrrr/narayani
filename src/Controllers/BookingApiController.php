@@ -131,6 +131,12 @@ class BookingApiController extends BaseController
             http_response_code(403);
             die('Invalid request.');
         }
+        
+        if (!\App\Helpers\RateLimiter::check('booking_creation', 10, 3600)) {
+            $this->json(['error' => 'Too many booking creations. Please wait an hour.'], 429);
+            return;
+        }
+
         $input = json_decode(file_get_contents('php://input'), true);
 
         if (!$input) {
@@ -459,6 +465,55 @@ class BookingApiController extends BaseController
     }
 
     /**
+     * GET /booking/report/download
+     */
+    public function downloadReport(): void
+    {
+        $bookingId = (int)($_GET['booking_id'] ?? 0);
+        $expires = (int)($_GET['expires'] ?? 0);
+        $signature = $_GET['signature'] ?? '';
+
+        if ($bookingId <= 0 || $expires <= 0 || empty($signature)) {
+            http_response_code(400);
+            die('Invalid signature parameters.');
+        }
+
+        if (!\App\Helpers\UrlSigner::validate($bookingId, $expires, $signature)) {
+            http_response_code(403);
+            die('This link has expired or signature is invalid.');
+        }
+
+        try {
+            $db = \App\Services\Database::getConnection();
+            $stmt = $db->prepare("SELECT report_path FROM bookings WHERE id = ? LIMIT 1");
+            $stmt->execute([$bookingId]);
+            $booking = $stmt->fetch();
+
+            if (!$booking || empty($booking['report_path'])) {
+                http_response_code(404);
+                die('Report not found.');
+            }
+
+            $projectRoot = dirname(__DIR__, 2);
+            $pdfPath = $projectRoot . $booking['report_path'];
+
+            if (file_exists($pdfPath)) {
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: attachment; filename="Narayani_Report_BKG-' . $bookingId . '.pdf"');
+                readfile($pdfPath);
+                exit;
+            } else {
+                http_response_code(404);
+                die('Report file does not exist on disk.');
+            }
+        } catch (\Exception $e) {
+            error_log("Error in BookingApiController@downloadReport: " . $e->getMessage());
+            http_response_code(500);
+            die('Internal system error.');
+        }
+    }
+
+    /**
      * Generate PDF Receipt File
      */
     private function generateReceiptPdfFile(int $bookingId): ?string
@@ -581,6 +636,65 @@ class BookingApiController extends BaseController
         } catch (\Exception $e) {
             error_log("Failed to write PDF file: " . $e->getMessage());
             return null;
+        }
+    }
+
+    /**
+     * POST /api/razorpay-webhook
+     */
+    public function razorpayWebhook(): void
+    {
+        $rawPost = file_get_contents('php://input');
+        $headers = getallheaders();
+        $signature = $headers['X-Razorpay-Signature'] ?? $headers['x-razorpay-signature'] ?? $_SERVER['HTTP_X_RAZORPAY_SIGNATURE'] ?? '';
+
+        if (empty($signature)) {
+            http_response_code(400);
+            die('Webhook signature missing.');
+        }
+
+        try {
+            $rzpConfig = require dirname(__DIR__, 2) . '/config/razorpay.php';
+            $webhookSecret = \App\Helpers\Env::get('RZP_WEBHOOK_SECRET', $rzpConfig['key_secret'] ?? '');
+
+            $expected = hash_hmac('sha256', $rawPost, $webhookSecret);
+            if (!hash_equals($expected, $signature)) {
+                http_response_code(403);
+                die('Invalid webhook signature.');
+            }
+
+            $payload = json_decode($rawPost, true);
+            if (isset($payload['event']) && $payload['event'] === 'payment.captured') {
+                $payment = $payload['payload']['payment']['entity'] ?? [];
+                $orderId = $payment['order_id'] ?? '';
+                $paymentId = $payment['id'] ?? '';
+
+                if (!empty($orderId)) {
+                    $db = \App\Services\Database::getConnection();
+
+                    // Find corresponding payment record
+                    $payStmt = $db->prepare("SELECT * FROM `payments` WHERE `gateway_order_id` = ? LIMIT 1");
+                    $payStmt->execute([$orderId]);
+                    $paymentRecord = $payStmt->fetch();
+
+                    if ($paymentRecord) {
+                        // Mark payment as success
+                        $upPay = $db->prepare("UPDATE `payments` SET `gateway_payment_id` = ?, `status` = 'captured', `raw_payload` = ? WHERE `id` = ?");
+                        $upPay->execute([$paymentId, json_encode($payload), $paymentRecord['id']]);
+
+                        // Mark booking as confirmed
+                        $upBkg = $db->prepare("UPDATE `bookings` SET `status` = 'confirmed' WHERE `id` = ?");
+                        $upBkg->execute([$paymentRecord['booking_id']]);
+                    }
+                }
+            }
+
+            echo json_encode(['status' => 'ok']);
+            exit;
+        } catch (\Exception $e) {
+            error_log("Razorpay Webhook Error: " . $e->getMessage());
+            http_response_code(500);
+            die('Webhook handler failed.');
         }
     }
 }

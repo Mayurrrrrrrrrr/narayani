@@ -4,6 +4,14 @@ declare(strict_types=1);
 require_once __DIR__ . '/../src/Helpers/Env.php';
 \App\Helpers\Env::load(__DIR__ . '/../.env');
 
+// Generate CSP Nonce
+if (!defined('CSP_NONCE')) {
+    define('CSP_NONCE', bin2hex(random_bytes(16)));
+}
+
+// Content Security Policy
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://checkout.razorpay.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'nonce-" . CSP_NONCE . "'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.razorpay.com https://narayani.yuktaa.com; frame-src https://*.razorpay.com; connect-src 'self' https://*.razorpay.com;");
+
 $_SERVER['REDIRECT_STATUS'] = 200;
 if (function_exists('putenv')) {
     putenv("REDIRECT_STATUS=200");
@@ -66,6 +74,7 @@ $router->post('/contact', 'HomeController@submitContact');
 $router->post('/api/log-lead', 'HomeController@logLead');
 $router->get('/booking', 'HomeController@booking');
 $router->get('/booking/receipt/{id}', 'BookingApiController@downloadReceipt');
+$router->get('/booking/report/download', 'BookingApiController@downloadReport');
 $router->get('/privacy-policy', 'HomeController@privacyPolicy');
 $router->get('/terms-conditions', 'HomeController@termsConditions');
 $router->get('/refund-policy', 'HomeController@refundPolicy');
@@ -73,6 +82,7 @@ $router->get('/sitemap.xml', 'HomeController@sitemap');
 $router->get('/api/available-slots', 'BookingApiController@availableSlots');
 $router->post('/api/book', 'BookingApiController@book');
 $router->post('/api/verify-payment', 'BookingApiController@verifyPayment');
+$router->post('/api/razorpay-webhook', 'BookingApiController@razorpayWebhook');
 $router->get('/assets/vector', 'HomeController@vector');
 $router->get('/generate-asset', 'HomeController@generateAsset');
 $router->get('/design-system', 'HomeController@designSystem');

@@ -68,7 +68,7 @@
                                                 Invoice PDF
                                             </a>
                                             <?php if (!empty($bkg['report_path']) && file_exists(dirname(__DIR__, 2) . $bkg['report_path'])): ?>
-                                                <a href="<?= htmlspecialchars($bkg['report_path']) ?>" download class="text-brand-purple hover:text-brand-pink font-semibold">
+                                                <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-purple hover:text-brand-pink font-semibold">
                                                     Report
                                                 </a>
                                             <?php endif; ?>

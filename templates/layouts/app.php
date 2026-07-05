@@ -30,10 +30,10 @@
     <link rel="stylesheet" href="/css/app.css">
     
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer nonce="<?= CSP_NONCE ?>" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- GSAP -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer nonce="<?= CSP_NONCE ?>" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
     <style type="text/css">
         .glass {
@@ -267,7 +267,7 @@
 
 
     <!-- GSAP Initializations & Dynamic Interaction Pipelines -->
-    <script>
+    <script nonce="<?= CSP_NONCE ?>">
         document.addEventListener('DOMContentLoaded', () => {
             gsap.from("header", {
                 y: -100,

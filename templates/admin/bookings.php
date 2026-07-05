@@ -105,7 +105,7 @@
                                             Upload PDF
                                         </button>
                                         <?php if (!empty($bkg['report_path'])): ?>
-                                            <a href="<?= htmlspecialchars($bkg['report_path']) ?>" download class="text-brand-gold hover:text-brand-pink font-semibold">
+                                            <a href="<?= \App\Helpers\UrlSigner::generateSignedUrl((int)$bkg['id']) ?>" download class="text-brand-gold hover:text-brand-pink font-semibold">
                                                 Download Report
                                             </a>
                                         <?php endif; ?>

@@ -185,7 +185,7 @@
     </div>
 </div>
 
-<script>
+<script nonce="<?= CSP_NONCE ?>">
 function countdown(scheduledAt) {
     return {
         targetDate: new Date(scheduledAt.replace(/-/g, "/")).getTime(),

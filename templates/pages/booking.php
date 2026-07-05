@@ -292,10 +292,10 @@ $sessionUser = [
 </section>
 
 <!-- Razorpay Web Checkout SDK -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script nonce="<?= CSP_NONCE ?>" src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <!-- Alpine.js Application Logic -->
-<script>
+<script nonce="<?= CSP_NONCE ?>">
 function bookingWizard() {
     return {
         step: 1,

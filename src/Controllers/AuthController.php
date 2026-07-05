@@ -33,6 +33,13 @@ class AuthController extends BaseController
             http_response_code(403);
             die('Invalid request.');
         }
+
+        if (!\App\Helpers\RateLimiter::check('user_login', 5, 60)) {
+            $_SESSION['login_error'] = 'Too many login attempts. Please try again in 1 minute.';
+            header('Location: /login');
+            exit;
+        }
+
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
