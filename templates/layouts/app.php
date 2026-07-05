@@ -21,6 +21,31 @@
     </script>
     <?php endif; ?>
 
+    <?php
+    $gaId = \App\Helpers\Env::get('GOOGLE_ANALYTICS_ID');
+    $clarityId = \App\Helpers\Env::get('CLARITY_PROJECT_ID');
+    ?>
+    <?php if (!empty($gaId)): ?>
+    <!-- Google Analytics (gtag.js) -->
+    <script async nonce="<?= CSP_NONCE ?>" src="https://www.googletagmanager.com/gtag/js?id=<?= urlencode($gaId) ?>"></script>
+    <script nonce="<?= CSP_NONCE ?>">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<?= htmlspecialchars($gaId, ENT_QUOTES) ?>');
+    </script>
+    <?php endif; ?>
+    <?php if (!empty($clarityId)): ?>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript" nonce="<?= CSP_NONCE ?>">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window,document,"clarity","script","<?= htmlspecialchars($clarityId, ENT_QUOTES) ?>");
+    </script>
+    <?php endif; ?>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
